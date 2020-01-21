@@ -98,29 +98,31 @@ class App extends React.Component {
   render() {
 
     return (
-      <div>
-        <h1 className="uk-text-center">Bride to Be Treatment Timeline</h1>
-        <div className="uk-container uk-container-center uk-text-center">
-          <div className="form-header">
-            <label id="wedding-date">Your Wedding Date</label>
-            <DatePicker
-              selected={this.state.weddingDate}
-              onChange={this.eventHandler}
-            />
-          </div>
-          { this.state.cardsActive ? (
-            <div className="uk-child-width-1-5@m uk-grid-small uk-grid-match uk-grid">
-            {Object.keys(this.state.serviceTimeline).map(i => (
-              <div key={this.state.serviceTimeline[i].id}>
-                  <ServiceCard
-                    service={this.state.serviceTimeline[i]}
-                  />
-              </div>
-            ))}
+      <div id="flex-container" className="uk-flex uk-flex-middle uk-flex-center">
+        <div>
+          <h1 className="uk-text-center">Bride to Be Treatment Timeline</h1>
+          <div className="uk-container uk-container-center uk-text-center">
+            <div className="form-header">
+              <label id="wedding-date">Your Wedding Date</label>
+              <DatePicker
+                selected={this.state.weddingDate}
+                onChange={this.eventHandler}
+              />
             </div>
-          ) : (
-            <div></div>
-          ) }
+            { this.state.cardsActive ? (
+              <div className="uk-child-width-1-5@m uk-grid-small uk-grid-match uk-grid">
+              {Object.keys(this.state.serviceTimeline).map(i => (
+                <div key={this.state.serviceTimeline[i].id}>
+                    <ServiceCard
+                      service={this.state.serviceTimeline[i]}
+                    />
+                </div>
+              ))}
+              </div>
+            ) : (
+              <div></div>
+            ) }
+          </div>
         </div>
       </div>
     )
